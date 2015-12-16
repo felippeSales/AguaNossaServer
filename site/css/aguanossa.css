@@ -1,0 +1,134 @@
+@font-face {
+	font-family: questrialRegular;
+	src: url('../fonts/questrial-regular.ttf');
+}
+
+body {
+	font-family: questrialRegular;
+}
+
+#header {
+	padding: 20px;
+}
+
+#aguanossa-logo {
+	width: 300px;
+}
+
+#logo-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
+
+#intro-container {
+	text-align: center;
+	font-size: 28px;
+	padding: 10px;
+}
+
+#register-container {
+	text-align: center;
+	font-size: 28px;
+	padding: 10px;
+}
+
+#map-container {
+	padding: 15px;
+}
+
+#info-container {
+	padding: 12px;
+}
+
+#detailed-info-container {
+	border: 1px solid rgba(0, 0, 0, 0.2);;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 28px;
+}
+
+#links-container {
+	padding-right: 0px;
+}
+
+#detailed-info-container h1 {
+	font-weight: bold;
+}
+
+#register-button {
+	font-size: 28px;
+	width: 255px;
+	padding: 10px;
+}
+
+.aguanossa-button {
+	font-size: 20px;
+	width: 100%;
+	padding: 16px;
+}
+
+#notification-counter {
+	font-weight: bold;
+}
+
+#map-canvas {
+	height: 400px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#about-modal-dialog {
+	font-size: 18px;
+	width: 800px;
+}
+
+#cordel-modal-dialog {
+	font-size: 18px;
+	width: 520px;
+}
+
+#results-modal-dialog {
+	font-size: 18px;
+	width: 700px;
+}
+
+.modal .modal-body {
+	max-height: 420px;
+	overflow-y: auto;
+}
+
+#share-container {
+	font-size: 20px;
+	padding: 16px;
+	height: 63px;
+	border: 1px solid rgba(0, 0, 0, 0.2);;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.share-icons {
+	margin-left: 10px;
+}
+
+footer {
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	margin-top: 30px;
+}
+
+footer .container {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.c3-axis-x {
+	font-family: questrialRegular;
+	font-size: 14px;
+}
+
+.c3-axis-y {
+	font-family: questrialRegular;
+	font-size: 13px;
+}
