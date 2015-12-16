@@ -3,13 +3,13 @@ var markers = [];
 var lat_lng_array = [];
 var notifications = [];
 
-var DEFAULT_MARKER_ICON = "images/aguanossa-marker.png";
+var DEFAULT_MARKER_ICON = "img/aguanossa-marker.png";
 var UPDATE_INTERVAL = 300000;
 
 function initialize() {
 	googleMapsInit();
 	loadNotifications();
-
+    console.log("test");
 	setInterval(loadNotifications, UPDATE_INTERVAL);
 }
 
