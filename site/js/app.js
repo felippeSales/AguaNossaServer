@@ -25,7 +25,7 @@ app.controller('GraficoVolume', function ($scope, $rootScope, $http) {
     $scope.chartConfig.waveAnimateTime = 1500;
     $scope.chartConfig.waveCount = 3;
 
-    $http.get("http://aguaeco-celiobarros.rhcloud.com/volume_boqueirao")
+    $http.get("https://aguaeco-celiobarros.rhcloud.com/volume_boqueirao")
         .then(function (response) {
             $scope.graficoVolume = response.data[0].volume;
             $scope.chart = loadLiquidFillGauge("graficoVolume", $scope.graficoVolume, $scope.chartConfig);
@@ -59,7 +59,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
             vazamentos: []
         };
 
-        $http.get("http://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
+        $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
 
             $scope.notifications.faltaDeAgua = response.data;
 
@@ -84,7 +84,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
 
         });
 
-        $http.get("http://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications_vazamentos").then(function (response) {
+        $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications_vazamentos").then(function (response) {
 
             $scope.notifications.vazamentos = response.data;
 
