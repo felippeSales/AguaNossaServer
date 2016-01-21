@@ -1,4 +1,4 @@
-var app = angular.module('AguaNossa', ['ngMaterial']);
+var app = angular.module('AguaNossa', ['angularSpinner']);
 
 var heatmap;
 var markers = [];
@@ -37,6 +37,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     $scope.vazamentos = 0;
     $scope.notifications = {};
     $scope.visualizar = {};
+    $rootScope.isLoading = false;
 
     $scope.initialize = function () {
         googleMapsInit();
@@ -49,6 +50,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     };
 
     $scope.loadNotifications = function () {
+        $rootScope.isLoading = true;
         deleteMarkers();
         lat_lng_array = {
             faltaDeAgua: [],
@@ -97,6 +99,8 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
             $scope.vazamentos = $scope.notifications.vazamentos.length;
 
         });
+        
+        $rootScope.isLoading = false;
 
 
 
