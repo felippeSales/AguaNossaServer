@@ -8,8 +8,11 @@ var lat_lng_array = {
 };
 
 var FALTA_MARKER_ICON = "img/aguanossa-marker.png";
-var UPDATE_INTERVAL = 300000;
+var UPDATE_INTERVAL = 10000;
 
+app.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
+    usSpinnerConfigProvider.setTheme('bigWhite', {color: 'white', radius: 15, lines: 15, length: 20});
+}]);
 
 app.controller('GraficoVolume', function ($scope, $rootScope, $http) {
     $scope.graficoVolume = 0.0;
@@ -37,7 +40,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     $scope.vazamentos = 0;
     $scope.notifications = {};
     $scope.visualizar = {};
-    $rootScope.isLoading = false;
+    $rootScope.isLoading = true;
 
     $scope.initialize = function () {
         googleMapsInit();
@@ -50,14 +53,13 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
     };
 
     $scope.loadNotifications = function () {
-        $rootScope.isLoading = true;
         deleteMarkers();
         lat_lng_array = {
             faltaDeAgua: [],
             vazamentos: []
         };
 
-        $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
+        $http.get("http://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications").then(function (response) {
 
             $scope.notifications.faltaDeAgua = response.data;
 
@@ -82,7 +84,7 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
 
         });
 
-        $http.get("https://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications_vazamentos").then(function (response) {
+        $http.get("http://contribuatestes.lsd.ufcg.edu.br/aguanossa-backend/get_notifications_vazamentos").then(function (response) {
 
             $scope.notifications.vazamentos = response.data;
 
@@ -97,10 +99,12 @@ app.controller('MapaDeRegistros', function ($scope, $rootScope, $http) {
             placeVazamentoMarkers();
 
             $scope.vazamentos = $scope.notifications.vazamentos.length;
+            
+            $rootScope.isLoading = false;
 
         });
         
-        $rootScope.isLoading = false;
+        
 
 
 
