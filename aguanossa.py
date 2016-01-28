@@ -6,7 +6,7 @@ import gspread
 from oauth2client.client import SignedJwtAssertionCredentials
 from threading import Thread
 import time
-import volumeBoqueirao
+from volumeBoqueirao import read_link, get_volume
 import os
 
 notifications = []
