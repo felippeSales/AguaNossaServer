@@ -6,6 +6,7 @@ import gspread
 from oauth2client.client import SignedJwtAssertionCredentials
 from threading import Thread
 import time
+import volumeBoqueirao
 import os
 
 notifications = []
@@ -209,6 +210,15 @@ def get_notifications():
 @app.route("/get_notifications_vazamentos")
 def get_notifications_vazamentos():
     response = make_response(json.dumps(vazamentos))
+    response.headers['Access-Control-Allow-Origin'] = "*"
+    
+    return response
+
+@app.route("/get_volume_boqueirao")
+def get_volume_boqueirao():
+    
+    volume = float(get_volume("Pessoa"))
+    response = make_response(json.dumps(volume))
     response.headers['Access-Control-Allow-Origin'] = "*"
     
     return response
