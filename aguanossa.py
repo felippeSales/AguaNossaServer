@@ -82,8 +82,6 @@ def read_worksheet():
 def notification_thread():
     while True:
         try:
-            print len(vazamentos)
-            print len(notifications)
             ler_respostas()
             retrieve_notifications()
             
