@@ -12,6 +12,8 @@ import os
 notifications = []
 worksheet = None
 
+volume = None
+
 ADDRESS_HEADER = 'Nome da rua:'.decode('utf-8')
 CEP_HEADER = 'CEP:'.decode('utf-8')
 NUMBER_HEADER = 'Número:'.decode('utf-8')
@@ -84,7 +86,7 @@ def notification_thread():
         try:
             ler_respostas()
             retrieve_notifications()
-            
+            get_volume_aesa()
         except Exception as e:
             print('Error %s' % e)
         finally:
@@ -195,6 +197,14 @@ def monta_endereco(notification):
     return complete_address.encode('utf-8')
 
 
+
+def get_volume_aesa():
+    global volume
+    
+    volume = float(get_volume("Pessoa"))
+    
+
+
 app = Flask(__name__)
 setup(app)
 
@@ -214,8 +224,6 @@ def get_notifications_vazamentos():
 
 @app.route("/get_volume_boqueirao")
 def get_volume_boqueirao():
-    
-    volume = float(get_volume("Pessoa"))
     response = make_response(json.dumps(volume))
     response.headers['Access-Control-Allow-Origin'] = "*"
     
